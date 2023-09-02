@@ -1,0 +1,33 @@
+import React, { useEffect, useState } from 'react'
+import ProjectCard from '../component/ProjectCard'
+import api from '../asset/api/api';
+
+const ProjectList = () => {
+  
+  const [projects, setProjects] = useState([]);
+  const retrivedProject = async ()=>{
+    const responce = await api.get("/api/project");
+    console.log(responce);
+    return responce.data;
+  }
+  useEffect(() => {
+    const getAllProject = async()=>{
+      const allProject = await retrivedProject();
+      if (allProject) {
+        setProjects(allProject);
+      }
+    }
+    getAllProject();
+  }, []);
+  
+  const renderProjects = projects.map((project)=>{
+    return <ProjectCard project= {project} key={project.id}/>
+  });
+  return (
+    <div className='container d-flex flex-row m-5'>
+      {renderProjects}
+    </div>
+  )
+}
+
+export default ProjectList
