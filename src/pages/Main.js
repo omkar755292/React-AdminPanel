@@ -12,7 +12,8 @@ const Main = () => {
     <div>
       <Header userName="omkar" />
       <Routes>
-        <Route exact path='/dashbord/*' element={<Dashbord />} />
+        <Route exact path='/' element={<Dashbord />} />
+        <Route exact path='/dashbord' element={<Dashbord />} />
         <Route exact path='/users' element={<Users />} />
         <Route exact path='/blogs' element={<BlogList />} />
         <Route exact path='/projects' element={<ProjectList />} />

@@ -1,19 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-const DashbordBar = () => {
+const DashbordBar = (props) => {
+
     return (
         <>
             <nav>
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <Link class="nav-link active" to="/dashbord/adduser">Add User</Link>
+                        <button class="nav-link active"
+                            onClick={(e) => { e.preventDefault(); props.viewInfo() }}>Info</button>
                     </li>
                     <li class="nav-item">
-                        <Link class="nav-link" to="/dashbord/addblog">Add Blog</Link>
+                        <button class="nav-link active"
+                            onClick={(e) => { e.preventDefault(); props.addUser() }}>Add User</button>
                     </li>
                     <li class="nav-item">
-                        <Link class="nav-link" to="/dashbord/addproject">Add Project</Link>
+                        <button class="nav-link"
+                        onClick={(e) => { e.preventDefault(); props.addBlog() }}>Add Blog</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link"
+                        onClick={(e) => { e.preventDefault(); props.addProject() }}>Add Project</button>
                     </li>
                 </ul>
             </nav>
