@@ -9,6 +9,11 @@ const BlogList = () => {
     console.log(response);
     return response.data;
   }
+
+  const handleDelete = async (blogId) => {
+      await api.delete(`/api/blog/${blogId}`);
+      setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== blogId));
+  };
   useEffect(() => {
     const getAllBlogs = async ()=>{
       const allBlogs = await retriveBlogs();
@@ -20,7 +25,7 @@ const BlogList = () => {
   }, [])
   
   const renderBlogs = blogs.map((blog)=>{
-    return <BlogCard key={blog.id} blog= {blog} />
+    return <BlogCard key={blog._id} onDelete={handleDelete} blog= {blog} />
   });
 
   return (

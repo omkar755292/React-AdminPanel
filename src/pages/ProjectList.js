@@ -24,7 +24,7 @@ const ProjectList = () => {
     return <ProjectCard project= {project} key={project.id}/>
   });
   return (
-    <div className='container d-flex flex-row m-5'>
+    <div className='container d-flex flex-wrap my-5'>
       {renderProjects}
     </div>
   )
