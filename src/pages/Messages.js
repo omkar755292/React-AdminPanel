@@ -18,9 +18,12 @@ const Messages = () => {
     }
     getAllMessages();
   }, [])
-
+  const handleDelete = async (messageId) => {
+    await api.delete(`/api/contact/${messageId}`);
+    setMessages((prevMessges) => prevMessges.filter((message) => message._id !== messageId));
+};
   const renderMessages = messages.map((message) =>{
-    return <MessageCard key={message.id} message = {message}/>
+    return <MessageCard handleDelete={handleDelete} key={message.id} message = {message}/>
   })
   return (
     <div className='container py-3'>
