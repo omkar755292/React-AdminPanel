@@ -10,6 +10,11 @@
 
 # production
 /build
+/onkar.dev.adminpanel
+
+#deployment
+deploy.sh
+setup.sh
 
 # misc
 .DS_Store
