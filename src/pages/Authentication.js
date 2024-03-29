@@ -7,7 +7,7 @@ import GoogleButton from 'react-google-button'
 import { useUserAuth } from '../context/UserAuthContext'
 
 const Authentication = () => {
-    const { loginWithGoogle } = useUserAuth();
+    const { loginWithGoogle, forgetPassword } = useUserAuth();
     const navigate = useNavigate();
     const handleGoogleLogin = async (e) => {
         e.preventDefault();
@@ -16,6 +16,16 @@ const Authentication = () => {
             navigate('/home');
         } catch (error) {
             console.log(error);
+        }
+    }
+    const handleForgetPassword = async (e) => {
+        e.preventDefault();
+        const email5 = prompt("Enter Email");
+        try {
+            await forgetPassword(email5);
+            alert("Check Email");
+        } catch (error) {
+            alert(error.message);
         }
     }
     return (
@@ -29,7 +39,7 @@ const Authentication = () => {
                 </Routes>
                 <div className='d-flex flex-column justify-content-center'>
                     <GoogleButton onClick={handleGoogleLogin} className='mt-3' type='dark' />
-                    <button class="btn btn-link">Forget Password</button>
+                    <button onClick={handleForgetPassword} class="btn btn-link">Forget Password</button>
                 </div>
             </div>
         </div>
