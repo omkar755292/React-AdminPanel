@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import MessageCard from '../component/MessageCard'
-import api from '../api/api';
+import MessageCard from '../../../component/card/MessageCard'
+import api from '../../../api/api';
 
 const Messages = () => {
   const [messages, setMessages] = useState([]);

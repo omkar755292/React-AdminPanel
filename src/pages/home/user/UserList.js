@@ -1,7 +1,7 @@
 import React from 'react'
-import UserCard from '../component/UserCard'
+import UserCard from '../../../component/card/UserCard'
 
-const Users = () => {
+const UserList = () => {
   return (
     <div className='container py-5'>
       <ol class="list-group list-group-numbered">
@@ -13,4 +13,4 @@ const Users = () => {
   )
 }
 
-export default Users
+export default UserList

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import DashbordBar from '../component/DashbordBar'
-import Avtar from '../component/Avtar'
+import DashbordBar from '../../../component/DashbordBar'
+import Avtar from '../../../component/Avtar'
 import DashbordMain from './DashbordMain'
 
 const Dashbord = () => {

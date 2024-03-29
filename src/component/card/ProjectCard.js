@@ -1,5 +1,5 @@
 import React from 'react'
-import projectimg from '../asset/image/web-design.jpg'
+import projectimg from '../../asset/image/web-design.jpg'
 const ProjectCard = (props) => {
   return (
     <div className='m-3'>

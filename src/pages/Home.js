@@ -1,20 +1,20 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Dashbord from './Dashbord'
-import Users from './Users'
-import BlogList from './BlogList'
-import ProjectList from './ProjectList'
-import Messages from './Messages'
+import Dashbord from './home/dashbord/Dashbord'
+import UserList from './home/user/UserList'
+import BlogList from './home/blog/BlogList'
+import ProjectList from './home/project/ProjectList'
+import Messages from './home/message/Messages'
 import Header from '../component/Header'
 
-const Main = () => {
+const Home = () => {
   return (
     <div>
       <Header userName="omkar" />
       <Routes>
         <Route exact path='/' element={<Dashbord />} />
         <Route exact path='/dashbord' element={<Dashbord />} />
-        <Route exact path='/users' element={<Users />} />
+        <Route exact path='/users' element={<UserList />} />
         <Route exact path='/blogs' element={<BlogList />} />
         <Route exact path='/projects' element={<ProjectList />} />
         <Route exact path='/messages' element={<Messages />} />
@@ -23,4 +23,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Home

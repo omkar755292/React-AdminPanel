@@ -1,7 +1,7 @@
 import React from 'react'
-import AddUser from './AddUser'
-import AddBlog from './AddBlog'
-import AddProject from './AddProject'
+import AddUser from '../user/AddUser'
+import AddBlog from '../blog/AddBlog'
+import AddProject from '../project/AddProject'
 import DashbordInfo from './DashbordInfo'
 
 const DashbordMain = (props) => {

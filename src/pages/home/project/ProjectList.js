@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ProjectCard from '../component/ProjectCard'
-import api from '../api/api';
+import ProjectCard from '../../../component/card/ProjectCard'
+import api from '../../../api/api';
 
 const ProjectList = () => {
   

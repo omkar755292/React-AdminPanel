@@ -8,7 +8,7 @@ const Header = (props) => {
     <div className='container'>
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid justify-content-center">
-          <Link class="navbar-brand" to="/">
+          <Link class="navbar-brand" to="/home">
             <Logo />&nbsp;{props.userName}.adminPanel
           </Link>
         </div>

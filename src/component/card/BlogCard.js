@@ -1,5 +1,5 @@
 import React from 'react'
-import blogImg from '../asset/image/avatar.svg'
+import blogImg from '../../asset/image/avatar.svg'
 const BlogCard = (props) => {
     const handleDelete = (e) => {
         e.preventDefault();

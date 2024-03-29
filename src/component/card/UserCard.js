@@ -1,5 +1,5 @@
 import React from 'react'
-import users from '../asset/image/avatar.svg'
+import users from '../../asset/image/avatar.svg'
 const UserCard = () => {
     return (
         <div className='container'>
