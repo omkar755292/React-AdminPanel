@@ -1,19 +1,21 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../node_modules/bootstrap/dist/js/bootstrap'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Home from './pages/Home';
 import Authentication from './pages/Authentication';
 import UserAuthContextProvider from './context/UserAuthContext';
+import ProtectedRoute from './component/ProtectedRoute';
 
 function App() {
   return (
     <div className='container'>
       <UserAuthContextProvider>
-      <Router>
-        <Routes >
-          <Route exact path='/*' element={<Authentication />} />
-          <Route exact path='/home/*' element={<Home />} />
-        </Routes>
-      </Router>
+        <Router>
+          <Routes >
+            <Route exact path='/*' element={<Authentication />} />
+            <Route exact path='/home/*' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
+          </Routes>
+        </Router>
       </UserAuthContextProvider>
     </div>
   );

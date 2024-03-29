@@ -15,7 +15,6 @@ const UserAuthContext = createContext();
 const UserAuthContextProvider = ({ children }) => {
     const [user, setUser] = useState('');
 
-
     const register = async (email, password, fullName) => {
         try {
             const userCredintial = await createUserWithEmailAndPassword(auth, email, password);
@@ -29,7 +28,9 @@ const UserAuthContextProvider = ({ children }) => {
     const login = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
-
+    const logout = () => {
+        return signOut(auth);
+    }
     const forgetPassword = () => { }
     const logInWithGoogle = () => { }
 
@@ -42,7 +43,7 @@ const UserAuthContextProvider = ({ children }) => {
         }
     }, [])
 
-    const value = { login, register, forgetPassword, logInWithGoogle, user }
+    const value = { login, register, logout, forgetPassword, logInWithGoogle, user }
 
     return (
         <UserAuthContext.Provider value={value}>
