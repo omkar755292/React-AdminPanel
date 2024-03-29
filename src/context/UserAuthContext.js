@@ -4,7 +4,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
-    googleAuthProvider,
+    GoogleAuthProvider,
     signInWithPopup,
     updateProfile
 } from 'firebase/auth';
@@ -21,7 +21,7 @@ const UserAuthContextProvider = ({ children }) => {
             await updateProfile(userCredintial.user, { displayName: fullName });
             return userCredintial.user;
         } catch (error) {
-            return alert(error.message);
+            throw error;
         }
 
     }
@@ -32,7 +32,16 @@ const UserAuthContextProvider = ({ children }) => {
         return signOut(auth);
     }
     const forgetPassword = () => { }
-    const logInWithGoogle = () => { }
+    const loginWithGoogle = async () => {
+        try {
+            const googleAuthProvider = new GoogleAuthProvider();
+            return await signInWithPopup(auth, googleAuthProvider)
+
+        } catch (error) {
+            console.error('Google Sign-In Error:', error);
+            throw error;
+        }
+    }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -43,7 +52,7 @@ const UserAuthContextProvider = ({ children }) => {
         }
     }, [])
 
-    const value = { login, register, logout, forgetPassword, logInWithGoogle, user }
+    const value = { login, register, logout, forgetPassword, loginWithGoogle, user }
 
     return (
         <UserAuthContext.Provider value={value}>

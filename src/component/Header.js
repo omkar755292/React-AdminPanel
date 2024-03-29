@@ -3,7 +3,6 @@ import Logo from './Logo'
 import Navbar from './Navbar'
 import { Link, useNavigate } from 'react-router-dom'
 import { useUserAuth } from '../context/UserAuthContext'
-import Avtar from './Avtar'
 
 const Header = () => {
   const { user, logout } = useUserAuth();
