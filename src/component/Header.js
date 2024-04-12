@@ -35,7 +35,7 @@ const Header = () => {
 
           <div class="btn-group position-absolute end-0">
             <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              {user.email}
+            <i class="bi bi-person-circle"></i> {firstName}
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><button class="dropdown-item" type="button">Name: {user.displayName}</button></li>

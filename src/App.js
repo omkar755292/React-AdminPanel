@@ -1,5 +1,6 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap'
+import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Home from './pages/Home';
 import Authentication from './pages/Authentication';
