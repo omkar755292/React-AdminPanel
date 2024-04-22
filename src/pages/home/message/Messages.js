@@ -23,7 +23,7 @@ const Messages = () => {
     setMessages((prevMessges) => prevMessges.filter((message) => message._id !== messageId));
 };
   const renderMessages = messages.map((message) =>{
-    return <MessageCard handleDelete={handleDelete} key={message.id} message = {message}/>
+    return <MessageCard handleDelete={handleDelete} key={message._id} message = {message}/>
   })
   return (
     <div className='container py-3'>

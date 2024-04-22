@@ -10,7 +10,7 @@ import Header from '../component/Header'
 const Home = () => {
   return (
     <div>
-      <Header userName="omkar" />
+      <Header />
       <Routes>
         <Route exact path='/' element={<Dashbord />} />
         <Route exact path='/dashbord' element={<Dashbord />} />
