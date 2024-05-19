@@ -4,18 +4,53 @@ import api from '../../../api/api';
 const AddProject = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("")
-  const [ProjectLink, setProjectLink] = useState("")
-  const [projectImage, setprojectImage] = useState('');
+  const [projectUrl, setProjectUrl] = useState("")
+  const [file, setFile] = useState("");
+  const [projectImagePath, setFilePath] = useState("");
+
+  const upload = async (e) => {
+
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      const response = await api.post('/api/upload/', formData);
+      console.log(response.data);
+      console.log(response.data.filePath);
+      setFilePath(response.data.filePath);
+
+    } catch (error) {
+      console.error('Error while posting project:', error);
+    }
+  }
+
+  const inputFileChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.files[0]);
+    setFile(e.target.files[0]);
+    upload();
+  }
+
 
   const postProject = async (e) => {
+
     e.preventDefault();
-    const newProject = { title, description, ProjectLink, projectImage }
-    const response = await api.post('/api/project', newProject);
-    console.log(response);
-    setTitle('');
-    setDescription('');
-    setProjectLink('');
-    setprojectImage('');
+    
+    const data = { title, description, projectUrl, projectImagePath}
+
+    try {
+
+      const response = await api.post('/api/project', data);
+      console.log(response);
+      setTitle('');
+      setDescription('');
+      setProjectUrl('');
+      setFile('');
+      setFilePath('');
+
+    } catch (error) {
+      console.error('Error while posting project:', error);
+    }
+
   }
 
   return (
@@ -40,18 +75,16 @@ const AddProject = (props) => {
           </div>
 
           <div class="mb-3">
-            <label
-              class="form-label"
-              value={ProjectLink}
-              onChange={(e) => { setProjectLink(e.target.value) }} >Link of Project</label>
-            <input type="url" class="form-control" />
+            <label class="form-label" >Link of Project</label>
+            <input type="url" class="form-control"
+              value={projectUrl}
+              onChange={(e) => { setProjectUrl(e.target.value) }} />
           </div>
 
           <div class="input-group mb-3">
             <input type="file"
               class="form-control"
-              value={projectImage}
-              onChange={(e) => { setprojectImage(e.target.value) }} />
+              onChange={inputFileChange} />
             <label class="input-group-text" >Upload Image</label>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -61,3 +94,4 @@ const AddProject = (props) => {
 }
 
 export default AddProject
+
