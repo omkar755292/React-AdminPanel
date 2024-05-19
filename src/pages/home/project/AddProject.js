@@ -8,26 +8,22 @@ const AddProject = (props) => {
   const [file, setFile] = useState("");
   const [projectImagePath, setFilePath] = useState("");
 
-  const upload = async (e) => {
-
+  const upload = async () => {
     try {
       const formData = new FormData();
       formData.append('file', file);
       const response = await api.post('/api/upload/', formData);
       console.log(response.data);
-      console.log(response.data.filePath);
-      setFilePath(response.data.filePath);
-
+      setFilePath(response.data.filePath); // Set the file path in state
     } catch (error) {
-      console.error('Error while posting project:', error);
+      console.error('Error while uploading file:', error);
     }
-  }
+  };
 
   const inputFileChange = (e) => {
     e.preventDefault();
     console.log(e.target.files[0]);
     setFile(e.target.files[0]);
-    upload();
   }
 
 
@@ -85,7 +81,7 @@ const AddProject = (props) => {
             <input type="file"
               class="form-control"
               onChange={inputFileChange} />
-            <label class="input-group-text" >Upload Image</label>
+            <label onClick={upload} class="input-group-text" >Upload Image</label>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form> : ""}
