@@ -3,6 +3,7 @@ import React from 'react'
 const ProjectCard = (props) => {
   
   console.log(props.project.projectImagePath);
+  
   return (
     <div className='m-3'>
       <div class="card" style={{ width: "280px", height: "300px" }}>
