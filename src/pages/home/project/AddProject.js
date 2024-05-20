@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import api from '../../../api/api';
+import api2 from '../../../api/api2';
 
 const AddProject = (props) => {
   const [title, setTitle] = useState("");
@@ -12,7 +13,9 @@ const AddProject = (props) => {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      const response = await api.post('/api/upload/', formData);
+      console.log('Media URL:', process.env.REACT_APP_MEDIAURL);
+      console.log('base URL:', process.env.REACT_APP_BASEURL);
+      const response = await api2.post(`${process.env.REACT_APP_MEDIAURL}/api/upload/image`, formData);
       console.log(response.data);
       setFilePath(response.data.filePath); // Set the file path in state
     } catch (error) {
