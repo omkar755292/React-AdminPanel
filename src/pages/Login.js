@@ -40,7 +40,7 @@ const Login = () => {
         </div>
         <div>
           <button type="submit" class="btn btn-primary mx-1 w-50">Submit</button>&nbsp;
-          <Link to="/register" className='w-50 mx-1'>Register</Link>&nbsp;
+          <Link to="/authentication/register" className='w-50 mx-1'>Register</Link>&nbsp;
         </div>
       </form>
     </div>

@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 const ProtectedRoute = ({ children }) => {
     let { user } = useUserAuth();
     if (!user) {
-        return <Navigate to='/login' />
+        return <Navigate to='/authentication' />
     }
     return children
 }

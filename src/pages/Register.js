@@ -47,7 +47,7 @@ const Register = () => {
         </div>
         <div className='container'>
           <button type="submit" class="btn btn-primary mx-1 w-50">Submit</button> &nbsp;
-          <Link to="/login" className='w-50 mx-1'>Login</Link>
+          <Link to="/authentication/login" className='w-50 mx-1'>Login</Link>
         </div>
       </form>
     </div>

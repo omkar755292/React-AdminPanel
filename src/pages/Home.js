@@ -13,7 +13,7 @@ const Home = () => {
       <Header />
       <Routes>
         <Route exact path='/' element={<Dashbord />} />
-        <Route exact path='/dashbord' element={<Dashbord />} />
+        <Route exact path='/home' element={<Dashbord />} />
         <Route exact path='/users' element={<UserList />} />
         <Route exact path='/blogs' element={<BlogList />} />
         <Route exact path='/projects' element={<ProjectList />} />

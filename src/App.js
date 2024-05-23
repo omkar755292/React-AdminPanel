@@ -13,8 +13,8 @@ function App() {
       <UserAuthContextProvider>
         <Router>
           <Routes >
-            <Route exact path='/*' element={<Authentication />} />
-            <Route exact path='/home/*' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
+            <Route exact path='/authentication/*' element={<Authentication />} />
+            <Route exact path='/*' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
           </Routes>
         </Router>
       </UserAuthContextProvider>
