@@ -15,7 +15,7 @@ const AddProject = (props) => {
       formData.append('file', file);
       const response = await axios.post(`${process.env.REACT_APP_MEDIAURL}/api/upload/image`, formData);
       console.log(response.data);
-      setFilePath(response.data.filePath); // Set the file path in state
+      setFilePath(response.data.fileUrl); // Set the file path in state
     } catch (error) {
       console.error('Error while uploading file:', error);
     }
