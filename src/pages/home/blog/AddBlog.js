@@ -1,10 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import api from '../../../api/api';
-import JoditEditor from 'jodit-react';
+import Editor from '../../../component/Editor';
 // import axios from 'axios';
 
 const AddBlog = (props) => {
-  const editor = useRef(null);
+ 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("")
   const [author, setAuthor] = useState('');
@@ -37,21 +37,6 @@ const AddBlog = (props) => {
   //   }
   // }
 
-  const config = {
-    readonly: false, // all options from https://xdsoft.net/jodit/doc/
-    toolbarSticky: false,
-    showCharsCounter: false,
-    showWordsCounter: false,
-    showXPathInStatusbar: false,
-    uploader: {
-      insertImageAsBase64URI: true,
-    },
-
-    buttons: [
-      'bold', 'italic', 'underline', 'strikethrough', 'eraser', 'ul', 'ol',
-      'outdent', 'indent', 'font', 'fontsize', 'brush', 'paragraph', 'image', 'link', 'align', 'undo', 'redo'
-    ]
-  };
   return (
     <div className='container' >
       {
@@ -67,19 +52,7 @@ const AddBlog = (props) => {
             <div class="mb-3">
 
               <label class="form-label">Content</label>
-
-              {/* <textarea class="form-control"
-              value={content}
-              onChange={(e) => { setContent(e.target.value) }}
-              rows="3"></textarea> */}
-              <JoditEditor
-                ref={editor}
-                value={content}
-                config={config}
-                tabIndex={1} // tabIndex of textarea
-                onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-                onChange={newContent => setContent(newContent)}
-              />
+              <Editor content={content} setContent={setContent}/>
 
             </div>
             <div class="mb-3">
